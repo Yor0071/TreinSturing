@@ -1,0 +1,12 @@
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\bin\Debug\TreinSturing.exe.config
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\bin\Debug\TreinSturing.exe
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\bin\Debug\TreinSturing.pdb
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\obj\Debug\TreinSturing.csproj.AssemblyReference.cache
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\obj\Debug\TreinSturing.Properties.Resources.resources
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\obj\Debug\TreinSturing.RunForm.resources
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\obj\Debug\TreinSturing.csproj.GenerateResource.cache
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\obj\Debug\TreinSturing.csproj.CoreCompileInputs.cache
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\obj\Debug\TreinSturing.exe
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\obj\Debug\TreinSturing.pdb
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\obj\Debug\TreinSturing.exe.config
+C:\Users\Yorick\source\repos\TreinSturing\TreinSturing\obj\Debug\TreinSturing.ProgForm.resources
