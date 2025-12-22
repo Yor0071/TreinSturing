@@ -1,0 +1,192 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\runform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\runform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\runform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\runform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\plcreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\plcreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\runform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\runform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\progform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\progform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\progform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\progform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\progform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\progform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\github\\treinsturing\\treinsturing\\snap7.net.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\snap7.net.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RunForm.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\RunForm.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\RunForm.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\RunForm.cs",
+              "RelativeToolTip": "TreinSturing\\RunForm.cs",
+              "ViewState": "AgIAADcBAAAAAAAAAAAiwD4BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T14:01:20.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProgForm.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\ProgForm.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\ProgForm.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\ProgForm.cs",
+              "RelativeToolTip": "TreinSturing\\ProgForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T13:58:54.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RunForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\RunForm.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\RunForm.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\RunForm.cs [Design]",
+              "RelativeToolTip": "TreinSturing\\RunForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T13:54:12.055Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\Program.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Program.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\Program.cs",
+              "RelativeToolTip": "TreinSturing\\Program.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAD4vxYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T13:53:43.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RunForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\RunForm.Designer.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\RunForm.Designer.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\RunForm.Designer.cs",
+              "RelativeToolTip": "TreinSturing\\RunForm.Designer.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwFUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T13:54:14.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProgForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\ProgForm.Designer.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\ProgForm.Designer.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\ProgForm.Designer.cs",
+              "RelativeToolTip": "TreinSturing\\ProgForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T13:58:38.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlcReader.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\PlcReader.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\PlcReader.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\PlcReader.cs",
+              "RelativeToolTip": "TreinSturing\\PlcReader.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwBYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T13:54:25.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProgForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\ProgForm.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\ProgForm.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\ProgForm.cs [Design]",
+              "RelativeToolTip": "TreinSturing\\ProgForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T13:58:05.536Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\App.config",
+              "RelativeDocumentMoniker": "TreinSturing\\App.config",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\App.config",
+              "RelativeToolTip": "TreinSturing\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-12-22T14:05:46.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "snap7.net.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\snap7.net.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\snap7.net.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\GitHub\\TreinSturing\\TreinSturing\\snap7.net.cs",
+              "RelativeToolTip": "TreinSturing\\snap7.net.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMkDAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T14:05:21.299Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
