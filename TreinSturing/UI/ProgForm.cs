@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using TreinSturing.Configuration;
+using TreinSturing.Infrastructure;
 
 namespace TreinSturing
 {
     public partial class ProgForm : Form
     {
-        // Zelfde PLC-gegevens als in RunForm (mag je natuurlijk centraliseren)
-        private const string PLC_IP = "192.168.0.1";
-        private const int PLC_RACK = 0;
-        private const int PLC_SLOT = 2;
+        private AppSettings _settings;
+        private IPlcReader _plc;
 
         // Hoeveel bytes je per DB wilt laten zien in de tabel
         private const int DEFAULT_DB_LENGTH = 16;
 
-        private PlcReader _plc;
         private bool _databasesLoaded = false;
 
         public ProgForm()
@@ -27,8 +26,10 @@ namespace TreinSturing
         {
             try
             {
-                _plc = new PlcReader();
-                var rc = _plc.Connect(PLC_IP, PLC_RACK, PLC_SLOT);
+                _settings = AppSettings.Load();
+                _plc = new Snap7PlcReader();
+
+                var rc = _plc.Connect(_settings.PlcIp, _settings.PlcRack, _settings.PlcSlot);
                 if (rc != 0)
                 {
                     MessageBox.Show($"Kan niet verbinden met PLC (code {rc}).",
@@ -64,7 +65,7 @@ namespace TreinSturing
             var foundDbs = new List<int>();
 
             // Simpele brute-force scan: pas bereik aan wat bij jouw PLC past
-            for (int dbNumber = 1; dbNumber <= 80; dbNumber++)
+            for (int dbNumber = _settings.DbScanStart; dbNumber <= _settings.DbScanEnd; dbNumber++)
             {
                 try
                 {
@@ -122,7 +123,7 @@ namespace TreinSturing
             try
             {
                 // Lees die database éénmalig
-                var data = _plc.ReadDbBytes(dbNumber, 2, DEFAULT_DB_LENGTH);
+                var data = _plc.ReadDbBytes(dbNumber, _settings.PlcStart, _settings.PlcLength);
                 UpdatePlcTable(data);
             }
             catch (Exception ex)

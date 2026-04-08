@@ -21,3 +21,15 @@ C:\Users\yoric\OneDrive\Documenten\GitHub\TreinSturing\TreinSturing\obj\Debug\Tr
 C:\Users\yoric\OneDrive\Documenten\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.csproj.CoreCompileInputs.cache
 C:\Users\yoric\OneDrive\Documenten\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.exe
 C:\Users\yoric\OneDrive\Documenten\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.pdb
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.csproj.AssemblyReference.cache
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.exe.config
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.ProgForm.resources
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.Properties.Resources.resources
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.RunForm.resources
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.csproj.GenerateResource.cache
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.csproj.CoreCompileInputs.cache
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.exe
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\obj\Debug\TreinSturing.pdb
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\bin\Debug\TreinSturing.exe.config
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\bin\Debug\TreinSturing.exe
+C:\Users\Yorick\Documents\GitHub\TreinSturing\TreinSturing\bin\Debug\TreinSturing.pdb
