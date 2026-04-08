@@ -1,95 +1,116 @@
 ﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
-using TreinSturing.Configuration;
-using TreinSturing.Domain;
 
 namespace TreinSturing.Infrastructure
 {
-    public sealed class Cs2TrainController : ITrainController
+    public sealed class Cs2TrainController : TreinSturing.Domain.ITrainController
     {
-        private readonly AppSettings _settings;
+        private readonly string _host;
+        private readonly int _port;
         private readonly ILogSink _log;
-        private TcpClient _tcpClient;
-        private NetworkStream _stream;
 
-        public Cs2TrainController(AppSettings settings, ILogSink log)
+        private UdpClient _udp;
+        private IPEndPoint _remote;
+
+        // Kies een vaste, unieke node UID voor jouw app.
+        // Die gebruik je alleen voor hash-opbouw.
+        private const uint MyNodeUid = 0x43533201;
+
+        public Cs2TrainController(string host, int port, ILogSink log)
         {
-            _settings = settings;
+            _host = host;
+            _port = port;
             _log = log;
         }
 
-        public async Task ConnectAsync(CancellationToken cancellationToken)
+        public Task ConnectAsync(CancellationToken cancellationToken)
         {
-            if (_tcpClient != null && _tcpClient.Connected)
-            {
-                return;
-            }
+            if (_udp != null)
+                return Task.CompletedTask;
 
-            _tcpClient = new TcpClient();
-            var connectTask = _tcpClient.ConnectAsync(_settings.Cs2Host, _settings.Cs2Port);
-            var timeoutTask = Task.Delay(_settings.Cs2ConnectTimeoutMs, cancellationToken);
-            var completed = await Task.WhenAny(connectTask, timeoutTask).ConfigureAwait(false);
+            _udp = new UdpClient();
+            _remote = new IPEndPoint(IPAddress.Parse(_host), _port);
 
-            if (completed != connectTask || !_tcpClient.Connected)
-            {
-                throw new TimeoutException($"Kan niet verbinden met CS2 op {_settings.Cs2Host}:{_settings.Cs2Port}.");
-            }
-
-            _stream = _tcpClient.GetStream();
-            _log.Info($"CS2 TCP verbonden met {_settings.Cs2Host}:{_settings.Cs2Port}.");
-        }
-
-        public async Task SetSpeedAsync(int locoAddress, byte rawSpeed, CancellationToken cancellationToken)
-        {
-            if (_stream == null)
-            {
-                throw new InvalidOperationException("CS2 transport is niet verbonden.");
-            }
-
-            var frame = BuildSetSpeedFrame(locoAddress, rawSpeed);
-            await _stream.WriteAsync(frame, 0, frame.Length, cancellationToken).ConfigureAwait(false);
-            await _stream.FlushAsync(cancellationToken).ConfigureAwait(false);
-            _log.Info($"CS2 TX -> loc={locoAddress}, rawSpeed={rawSpeed}, bytes={BitConverter.ToString(frame)}");
+            _log.Info($"CS2 UDP klaar voor {_host}:{_port}");
+            return Task.CompletedTask;
         }
 
         public Task DisconnectAsync(CancellationToken cancellationToken)
         {
-            try
-            {
-                if (_stream != null)
-                {
-                    _stream.Dispose();
-                    _stream = null;
-                }
-
-                if (_tcpClient != null)
-                {
-                    _tcpClient.Close();
-                    _tcpClient.Dispose();
-                    _tcpClient = null;
-                }
-
-                _log.Info("CS2 verbinding gesloten.");
-            }
-            catch (Exception ex)
-            {
-                _log.Error("Fout bij sluiten CS2 verbinding: " + ex.Message);
-            }
-
+            try { _udp?.Dispose(); } catch { }
+            _udp = null;
+            _remote = null;
+            _log.Info("CS2 UDP disconnected.");
             return Task.CompletedTask;
         }
 
-        private static byte[] BuildSetSpeedFrame(int locoAddress, byte rawSpeed)
+        public async Task SetSpeedAsync(int locoAddress, byte rawSpeed, CancellationToken cancellationToken)
         {
-            // BELANGRIJK:
-            // Dit is bewust een geïsoleerde placeholder. De app-architectuur is nu refactored,
-            // maar het exacte Märklin CAN/TCP frame voor 'set locomotiefsnelheid' moet nog
-            // definitief uit de protocolreferentie worden overgenomen en getest op jouw CS2.
-            // Tot die tijd gooien we een duidelijke fout i.p.v. ongeldige bytes te sturen.
-            throw new NotSupportedException(
-                "CS2 protocolframe voor snelheid is nog niet ingevuld. Gebruik tijdelijk Controller.Type=Simulation totdat het definitieve frame is toegevoegd.");
+            if (_udp == null)
+                await ConnectAsync(cancellationToken).ConfigureAwait(false);
+
+            // Eerste werkende versie: ga uit van MM2-locadressen.
+            uint locId = (uint)locoAddress;
+
+            // Oude PLC-waarde zat effectief in 0..31.
+            int oldScale = rawSpeed & 0x1F;
+
+            // Nieuwe CS2-schaal is 0..1000.
+            ushort cs2Speed = (ushort)Math.Round(oldScale * 1000.0 / 31.0);
+
+            byte[] packet = BuildSpeedPacket(locId, cs2Speed);
+
+            await _udp.SendAsync(packet, packet.Length, _remote).ConfigureAwait(false);
+
+            _log.Info($"CS2 TX -> loc={locoAddress}, locId=0x{locId:X8}, raw={rawSpeed}, speed={cs2Speed}, hex={BitConverter.ToString(packet)}");
+        }
+
+        private static byte[] BuildSpeedPacket(uint locId, ushort speed)
+        {
+            ushort hash = GenerateHash(MyNodeUid);
+
+            // command 0x04 -> CAN-ID command part 0x08 volgens protocolvoorbeelden
+            uint canId = ((uint)0x04 << 17) | hash;
+
+            byte[] packet = new byte[13];
+
+            // 4 bytes CAN-ID big-endian
+            packet[0] = (byte)((canId >> 24) & 0xFF);
+            packet[1] = (byte)((canId >> 16) & 0xFF);
+            packet[2] = (byte)((canId >> 8) & 0xFF);
+            packet[3] = (byte)(canId & 0xFF);
+
+            // DLC = 6
+            packet[4] = 0x06;
+
+            // data[0..3] = Loc-ID big-endian
+            packet[5] = (byte)((locId >> 24) & 0xFF);
+            packet[6] = (byte)((locId >> 16) & 0xFF);
+            packet[7] = (byte)((locId >> 8) & 0xFF);
+            packet[8] = (byte)(locId & 0xFF);
+
+            // data[4..5] = snelheid big-endian
+            packet[9] = (byte)((speed >> 8) & 0xFF);
+            packet[10] = (byte)(speed & 0xFF);
+
+            // data[6..7] padding
+            packet[11] = 0x00;
+            packet[12] = 0x00;
+
+            return packet;
+        }
+
+        private static ushort GenerateHash(uint uid)
+        {
+            ushort high = (ushort)(uid >> 16);
+            ushort low = (ushort)(uid & 0xFFFF);
+            ushort x = (ushort)(high ^ low);
+
+            // Veelgebruikte implementatie van de hash-encoding voor CS2 CAN
+            return (ushort)((((x << 3) & 0xFF00) | 0x0300) | (x & 0x007F));
         }
     }
 }
