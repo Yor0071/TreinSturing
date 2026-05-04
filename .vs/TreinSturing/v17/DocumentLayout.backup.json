@@ -1,0 +1,207 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\infrastructure\\cs2traincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\infrastructure\\cs2traincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\domain\\locospeedsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\domain\\locospeedsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\infrastructure\\traincontrollerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\infrastructure\\traincontrollerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\infrastructure\\snap7plcreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\infrastructure\\snap7plcreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\infrastructure\\simulationtraincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\infrastructure\\simulationtraincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\configuration\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\configuration\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\infrastructure\\iplcreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\infrastructure\\iplcreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\infrastructure\\delegatelogsink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\infrastructure\\delegatelogsink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\snap7.net.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\snap7.net.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|c:\\users\\yoric\\onedrive\\documenten\\trein\\treinsturing\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57E87B5-E861-4900-892A-7272C4E585C2}|TreinSturing\\TreinSturing.csproj|solutionrelative:treinsturing\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Snap7PlcReader.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\Snap7PlcReader.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Infrastructure\\Snap7PlcReader.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\Snap7PlcReader.cs",
+              "RelativeToolTip": "TreinSturing\\Infrastructure\\Snap7PlcReader.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T18:02:44.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DelegateLogSink.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\DelegateLogSink.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Infrastructure\\DelegateLogSink.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\DelegateLogSink.cs",
+              "RelativeToolTip": "TreinSturing\\Infrastructure\\DelegateLogSink.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T18:02:40.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cs2TrainController.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\Cs2TrainController.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Infrastructure\\Cs2TrainController.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\Cs2TrainController.cs",
+              "RelativeToolTip": "TreinSturing\\Infrastructure\\Cs2TrainController.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAIwLoAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T18:02:39.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\App.config",
+              "RelativeDocumentMoniker": "TreinSturing\\App.config",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\App.config",
+              "RelativeToolTip": "TreinSturing\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-04T17:49:08.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SimulationTrainController.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\SimulationTrainController.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Infrastructure\\SimulationTrainController.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\SimulationTrainController.cs",
+              "RelativeToolTip": "TreinSturing\\Infrastructure\\SimulationTrainController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T18:02:58.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TrainControllerFactory.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\TrainControllerFactory.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Infrastructure\\TrainControllerFactory.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\TrainControllerFactory.cs",
+              "RelativeToolTip": "TreinSturing\\Infrastructure\\TrainControllerFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T18:02:56.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LocoSpeedSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Domain\\LocoSpeedSnapshot.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Domain\\LocoSpeedSnapshot.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Domain\\LocoSpeedSnapshot.cs",
+              "RelativeToolTip": "TreinSturing\\Domain\\LocoSpeedSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T18:02:52.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IPlcReader.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\IPlcReader.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Infrastructure\\IPlcReader.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Infrastructure\\IPlcReader.cs",
+              "RelativeToolTip": "TreinSturing\\Infrastructure\\IPlcReader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T18:02:42.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "snap7.net.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\snap7.net.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\snap7.net.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\snap7.net.cs",
+              "RelativeToolTip": "TreinSturing\\snap7.net.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAcwLADAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T18:00:55.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppSettings.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Configuration\\AppSettings.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Configuration\\AppSettings.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Configuration\\AppSettings.cs",
+              "RelativeToolTip": "TreinSturing\\Configuration\\AppSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T17:56:37.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Program.cs",
+              "RelativeDocumentMoniker": "TreinSturing\\Program.cs",
+              "ToolTip": "C:\\Users\\yoric\\OneDrive\\Documenten\\Trein\\TreinSturing\\Program.cs",
+              "RelativeToolTip": "TreinSturing\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T17:49:04.427Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
