@@ -68,27 +68,21 @@ namespace TreinSturing
 
         private void RunButton_Click(object sender, EventArgs e)
         {
-            if (_runTask != null && !_runTask.IsCompleted)
+            if (_runTask != null)
                 return;
 
             RunButton.Enabled = false;
             StopButton.Enabled = true;
 
             _cts = new CancellationTokenSource();
-
-            // Belangrijk: op achtergrondthread starten.
-            // Anders kan Snap7 ConnectTo de Windows Forms UI blokkeren.
-            _runTask = Task.Run(async () =>
-            {
-                await RunAsync(_cts.Token).ConfigureAwait(false);
-            });
+            _runTask = RunAsync(_cts.Token);
         }
 
         private async Task RunAsync(CancellationToken ct)
         {
             try
             {
-                await _trainSyncService.RunAsync(ct).ConfigureAwait(false);
+                await _trainSyncService.RunAsync(ct);
             }
             catch (OperationCanceledException)
             {
@@ -102,7 +96,7 @@ namespace TreinSturing
             {
                 try
                 {
-                    await _trainSyncService.StopAsync(CancellationToken.None).ConfigureAwait(false);
+                    await _trainSyncService.StopAsync(CancellationToken.None);
                 }
                 catch (Exception ex)
                 {
@@ -131,9 +125,6 @@ namespace TreinSturing
 
         private void ResetRunState()
         {
-            if (IsDisposed)
-                return;
-
             if (InvokeRequired)
             {
                 BeginInvoke((Action)ResetRunState);

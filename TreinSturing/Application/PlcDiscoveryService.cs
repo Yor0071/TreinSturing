@@ -27,7 +27,7 @@ namespace TreinSturing.Application
             {
                 try
                 {
-                    _plcReader.ReadDbBytes(dbNumber, _settings.PlcStart, 3);
+                    _plcReader.ReadDbBytes(dbNumber, _settings.PlcStart, 2);
                     result.Add(dbNumber);
                 }
                 catch

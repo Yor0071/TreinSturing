@@ -3,12 +3,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
-using TreinSturing.Configuration;
-using TreinSturing.Domain;
 
 namespace TreinSturing.Infrastructure
 {
-    public sealed class Cs2TrainController : ITrainController
+    public sealed class Cs2TrainController : TreinSturing.Domain.ITrainController
     {
         private readonly string _host;
         private readonly int _port;
@@ -17,21 +15,14 @@ namespace TreinSturing.Infrastructure
         private UdpClient _udp;
         private IPEndPoint _remote;
 
-        private const byte PrioLocCommand = 4;
-        private const byte CommandSetSpeed = 0x04;
-        private const byte CommandSetDirection = 0x05;
-        private const byte CommandSetFunction = 0x06;
+        // Kies een vaste, unieke node UID voor jouw app.
+        // Die gebruik je alleen voor hash-opbouw.
+        private const uint MyNodeUid = 0x43533201;
 
-        // Voor testen gebruiken we de vaste hash uit het protocolvoorbeeld.
-        // Later kunnen we hier een echte UID-hash + receive/response-logica van maken.
-        private const ushort CanHash = 0x4711;
-
-        public Cs2TrainController(AppSettings settings, ILogSink log)
+        public Cs2TrainController(string host, int port, ILogSink log)
         {
-            if (settings == null) throw new ArgumentNullException(nameof(settings));
-
-            _host = settings.Cs2Host;
-            _port = settings.Cs2Port;
+            _host = host;
+            _port = port;
             _log = log;
         }
 
@@ -49,17 +40,9 @@ namespace TreinSturing.Infrastructure
 
         public Task DisconnectAsync(CancellationToken cancellationToken)
         {
-            try
-            {
-                _udp?.Dispose();
-            }
-            catch
-            {
-            }
-
+            try { _udp?.Dispose(); } catch { }
             _udp = null;
             _remote = null;
-
             _log.Info("CS2 UDP disconnected.");
             return Task.CompletedTask;
         }
@@ -69,176 +52,65 @@ namespace TreinSturing.Infrastructure
             if (_udp == null)
                 await ConnectAsync(cancellationToken).ConfigureAwait(false);
 
-            // Jouw regel:
-            // DB-nummer = locadres op de baan.
-            //
-            // Voor mfx maken we daar een mfx Loc-ID van:
-            // DB 1  -> 00 00 40 01
-            // DB 18 -> 00 00 40 12
-            uint locId = BuildMfxLocId(locoAddress);
+            // Eerste werkende versie: ga uit van MM2-locadressen.
+            uint locId = (uint)locoAddress;
 
-            // PLC-snelheid is 1 byte: 0..255.
-            // CS2/mfx snelheid is 0..1000.
-            ushort cs2Speed = PlcSpeedToCs2Speed(rawSpeed);
+            // Oude PLC-waarde zat effectief in 0..31.
+            int oldScale = rawSpeed & 0x1F;
 
-            byte[] packet = BuildMfxSpeedPacket(locId, cs2Speed);
+            // Nieuwe CS2-schaal is 0..1000.
+            ushort cs2Speed = (ushort)Math.Round(oldScale * 1000.0 / 31.0);
+
+            byte[] packet = BuildSpeedPacket(locId, cs2Speed);
 
             await _udp.SendAsync(packet, packet.Length, _remote).ConfigureAwait(false);
 
-            _log.Info(
-                $"CS2 TX SPEED mfx -> DB={locoAddress}, locId=0x{locId:X8}, " +
-                $"rawSpeed={rawSpeed}, cs2Speed={cs2Speed}, packet={BitConverter.ToString(packet)}");
+            _log.Info($"CS2 TX -> loc={locoAddress}, locId=0x{locId:X8}, raw={rawSpeed}, speed={cs2Speed}, hex={BitConverter.ToString(packet)}");
         }
 
-        public async Task SetDirectionAsync(int locoAddress, byte direction, CancellationToken cancellationToken)
+        private static byte[] BuildSpeedPacket(uint locId, ushort speed)
         {
-            if (direction > 3)
-                throw new ArgumentOutOfRangeException(nameof(direction), "Richting moet 0, 1, 2 of 3 zijn.");
+            ushort hash = GenerateHash(MyNodeUid);
 
-            if (_udp == null)
-                await ConnectAsync(cancellationToken).ConfigureAwait(false);
-
-            uint locId = BuildMfxLocId(locoAddress);
-            byte[] packet = BuildMfxDirectionPacket(locId, direction);
-
-            await _udp.SendAsync(packet, packet.Length, _remote).ConfigureAwait(false);
-
-            _log.Info(
-                $"CS2 TX DIRECTION mfx -> DB={locoAddress}, locId=0x{locId:X8}," +
-                $"direction={direction}, packet={BitConverter.ToString(packet)}");
-        }
-
-        public async Task SetFunctionAsync(int locoAddress, byte functionNumber, byte value, CancellationToken cancellationToken)
-        {
-            if (functionNumber > 31)
-                throw new ArgumentOutOfRangeException(nameof(functionNumber), "mfx functienummer moet F0...F31 zijn");
-
-            if (value > 31)
-                throw new ArgumentOutOfRangeException(nameof(value), "Functiewaarde moet 0..31 zijn. Gebruik 0=uit, 1=aan");
-
-            if (_udp == null)
-                await ConnectAsync(cancellationToken).ConfigureAwait(false);
-
-            uint locId = BuildMfxLocId(locoAddress);
-            byte[] packet = BuildMfxFunctionPacket(locId, functionNumber, value);
-
-            await _udp.SendAsync(packet, packet.Length, _remote).ConfigureAwait(false);
-
-            _log.Info(
-                $"CS2 TX FUNCTION mfx -> DB={locoAddress}, locId=0x{locId:X8}" +
-                $"F{functionNumber}={(value == 0 ? "uit" : "aan")}, packet={BitConverter.ToString(packet)}");
-        }
-
-        private static uint BuildMfxLocId(int locoAddress)
-        {
-            if (locoAddress < 0 || locoAddress > 0x3FFF)
-                throw new ArgumentOutOfRangeException(nameof(locoAddress), "mfx adres/SID moet binnen 0..16383 vallen.");
-
-            return 0x00004000u | (uint)locoAddress;
-        }
-
-        private static byte[] BuildMfxDirectionPacket(uint locId, byte direction)
-        {
-            byte[] data =
-            {
-                (byte)((locId >> 24) & 0xFF),
-                (byte)((locId >> 16) & 0xFF),
-                (byte)((locId >> 8) & 0xFF),
-                (byte)(locId & 0xFF),
-
-                direction
-            };
-
-            return BuildCanUdpPacket(
-                prio: PrioLocCommand,
-                command: CommandSetDirection,
-                hash: CanHash,
-                response: false,
-                data: data,
-                dlc: 5);
-        }
-
-        private static byte[] BuildMfxFunctionPacket(uint locId, byte functionNumber, byte value)
-        {
-            byte[] data =
-            {
-                (byte)((locId >> 24) & 0xFF),
-                (byte)((locId >> 16) & 0xFF),
-                (byte)((locId >> 8) & 0xFF),
-                (byte)(locId & 0xFF),
-
-                functionNumber,
-                value
-            };
-
-            return BuildCanUdpPacket(
-                prio: PrioLocCommand,
-                command: CommandSetFunction,
-                hash: CanHash,
-                response: false,
-                data: data,
-                dlc: 6);
-        }
-
-        private static ushort PlcSpeedToCs2Speed(byte rawSpeed)
-        {
-            // rawSpeed 0   -> 0
-            // rawSpeed 255 -> 1000
-            var speed = (int)Math.Round(rawSpeed * (1000.0 / 255.0));
-
-            if (speed < 0) speed = 0;
-            if (speed > 1000) speed = 1000;
-
-            return (ushort)speed;
-        }
-
-        private static byte[] BuildMfxSpeedPacket(uint locId, ushort speed)
-        {
-            byte[] data =
-            {
-                (byte)((locId >> 24) & 0xFF),
-                (byte)((locId >> 16) & 0xFF),
-                (byte)((locId >> 8) & 0xFF),
-                (byte)(locId & 0xFF),
-
-                (byte)((speed >> 8) & 0xFF),
-                (byte)(speed & 0xFF)
-            };
-
-            return BuildCanUdpPacket(
-                prio: PrioLocCommand,
-                command: CommandSetSpeed,
-                hash: CanHash,
-                response: false,
-                data: data,
-                dlc: 6);
-        }
-
-        private static byte[] BuildCanUdpPacket(byte prio, byte command, ushort hash, bool response, byte[] data, byte dlc)
-        {
-            if (dlc > 8)
-                throw new ArgumentOutOfRangeException(nameof(dlc), "DLC mag maximaal 8 zijn.");
-
-            if (data == null)
-                data = Array.Empty<byte>();
-
-            if (data.Length < dlc)
-                throw new ArgumentException("Data bevat minder bytes dan de opgegeven DLC.", nameof(data));
+            // command 0x04 -> CAN-ID command part 0x08 volgens protocolvoorbeelden
+            uint canId = ((uint)0x04 << 17) | hash;
 
             byte[] packet = new byte[13];
 
-            packet[0] = (byte)((prio << 4) | (command >> 7));
-            packet[1] = (byte)(((command & 0x7F) << 1) | (response ? 1 : 0));
-            packet[2] = (byte)((hash >> 8) & 0xFF);
-            packet[3] = (byte)(hash & 0xFF);
+            // 4 bytes CAN-ID big-endian
+            packet[0] = (byte)((canId >> 24) & 0xFF);
+            packet[1] = (byte)((canId >> 16) & 0xFF);
+            packet[2] = (byte)((canId >> 8) & 0xFF);
+            packet[3] = (byte)(canId & 0xFF);
 
-            packet[4] = dlc;
+            // DLC = 6
+            packet[4] = 0x06;
 
-            // Alleen de DLC-bytes kopiëren.
-            // De overige payloadbytes blijven automatisch 0x00.
-            Array.Copy(data, 0, packet, 5, dlc);
+            // data[0..3] = Loc-ID big-endian
+            packet[5] = (byte)((locId >> 24) & 0xFF);
+            packet[6] = (byte)((locId >> 16) & 0xFF);
+            packet[7] = (byte)((locId >> 8) & 0xFF);
+            packet[8] = (byte)(locId & 0xFF);
+
+            // data[4..5] = snelheid big-endian
+            packet[9] = (byte)((speed >> 8) & 0xFF);
+            packet[10] = (byte)(speed & 0xFF);
+
+            // data[6..7] padding
+            packet[11] = 0x00;
+            packet[12] = 0x00;
 
             return packet;
+        }
+
+        private static ushort GenerateHash(uint uid)
+        {
+            ushort high = (ushort)(uid >> 16);
+            ushort low = (ushort)(uid & 0xFFFF);
+            ushort x = (ushort)(high ^ low);
+
+            // Veelgebruikte implementatie van de hash-encoding voor CS2 CAN
+            return (ushort)((((x << 3) & 0xFF00) | 0x0300) | (x & 0x007F));
         }
     }
 }
