@@ -16,7 +16,9 @@ namespace TreinSturing.Infrastructure
                 case "CS2":
                 case "CENTRALSTATION":
                 case "CENTRALSTATION2":
-                    return new Cs2TrainController(settings, log);
+                    return new Cs2TrainController(settings.Cs2Host,
+                                                  settings.Cs2Port,
+                                                  log);
 
                 case "SIMULATION":
                 default:
